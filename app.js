@@ -1,10 +1,12 @@
 let squris = document.querySelectorAll('.squirell');
+let nets = document.querySelectorAll('.net')
 let score = document.querySelector('#score')
 function randHole() {
-	return Math.floor(Math.random()*7) ;
+	return Math.floor(Math.random()*9) ;
 }
 var points = 0;
-function addPoints() {
+function addPoints(idx) {
+	document.getElementById(idx).classList.add('net-active');
 	points++;
 }
 let nIntervId;
@@ -24,10 +26,13 @@ function startGame() {
 	squris.forEach(div => {
 		div.classList.toggle('hide',true);
 	});
+	nets.forEach(net => {
+		net.classList.toggle('hide',true)
+	});
 	nIntervId = setInterval(function() {
 		showUp();
 
-	}, 2200);
+	}, 2500);
   }
   else {
 	  alert('complete the present game');
@@ -40,15 +45,13 @@ function showUp() {
 	squris[i].classList.add("slideIn");
 	setTimeout(function () {
 		squris[i].classList.remove("slideIn");
-	}, 1100)
+		nets[i].classList.remove("net-active")
+	}, 1500)
 }
 
 function stopGame() {
 	if(nIntervId) {
 		clearInterval(nIntervId);
-		// squris.forEach(div => {
-		// 	div.classList.toggle('hide',true);
-		// 	});
 		score.innerText = `You caught ${points} squirrels! Try again to catch more`;
 		nIntervId = null;
 		points = 0; 
