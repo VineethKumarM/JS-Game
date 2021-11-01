@@ -27,7 +27,7 @@ function startGame() {
 	nIntervId = setInterval(function() {
 		showUp();
 
-	}, 3000);
+	}, 2200);
   }
   else {
 	  alert('complete the present game');
@@ -38,13 +38,9 @@ function showUp() {
 
 	let i = randHole();
 	squris[i].classList.add("slideIn");
-	
-	squris[i].addEventListener("click", function () {
-		points++;
-	})
 	setTimeout(function () {
 		squris[i].classList.remove("slideIn");
-	}, 1000)
+	}, 1100)
 }
 
 function stopGame() {
