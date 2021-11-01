@@ -46,7 +46,7 @@ function showUp() {
 	setTimeout(function () {
 		squris[i].classList.remove("slideIn");
 		nets[i].classList.remove("net-active")
-	}, 1500)
+	}, 1400)
 }
 
 function stopGame() {
