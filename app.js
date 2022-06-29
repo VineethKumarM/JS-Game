@@ -1,5 +1,5 @@
 let squris = document.querySelectorAll('.squirell');
-// let nets = document.querySelectorAll('.net')
+let nets = document.querySelectorAll('.net')
 let score = document.querySelector('#scoreCard')
 let scoreB = document.querySelector('#scoreCard').querySelector('p');
 function randHole() {
@@ -7,7 +7,7 @@ function randHole() {
 }
 var points = 0;
 function addPoints(idx) {
-	// document.getElementById(idx).classList.add('net-active');
+	document.getElementById(idx).classList.add('net-active');
 	points++;
 	scoreB.innerText = `${points} catches`
 
@@ -36,9 +36,9 @@ function startGame() {
 	squris.forEach(div => {
 		div.classList.toggle('hide',true);
 	});
-	// nets.forEach(net => {
-	// 	net.classList.toggle('hide',true)
-	// });
+	nets.forEach(net => {
+		net.classList.toggle('hide',true)
+	});
 	nIntervId = setInterval(function() {
 		showUp();
 
@@ -55,7 +55,7 @@ function showUp() {
 	squris[i].classList.add("slideIn");
 	setTimeout(function () {
 		squris[i].classList.remove("slideIn");
-		// nets[i].classList.remove("net-active")
+		nets[i].classList.remove("net-active")
 	}, 1200)
 }
 
